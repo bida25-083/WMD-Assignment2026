@@ -1,0 +1,697 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    min-height: 100%;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    background: radial-gradient(circle at top, #fff8ee 0%, #f3eadb 40%, #f4ede3 100%);
+    color: #2a2320;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+/* ===== HEADER ===== */
+header {
+    display: flex;
+    max-width: 1280px;
+    margin: 24px auto 0;
+    padding: 16px 32px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    background: #2b1a10;
+    border-radius: 40px;
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.18);
+}
+
+header .logo img {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    object-fit: cover;
+    background: #fff;
+}
+
+header h2 {
+    font-size: 1.3rem;
+    color: #fff;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+header h2::after {
+    content: "Good Food, Great Moments";
+    display: block;
+    margin-top: 4px;
+    font-size: 0.78rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: #f0d9b2;
+}
+
+header nav {
+    flex: 1;
+}
+
+header nav ul {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+    list-style: none;
+    flex-wrap: wrap;
+    padding-right: 4px;
+}
+
+header nav li a {
+    color: #f1e9da;
+    font-size: 0.95rem;
+    letter-spacing: 0.06em;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 8px 0;
+    transition: color 0.25s ease;
+}
+
+header nav li a:hover {
+    color: #ffb14c;
+}
+
+header nav li:last-child a {
+    background: linear-gradient(135deg, #ff8c2f 0%, #ffb241 100%);
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 999px;
+    box-shadow: 0 12px 22px rgba(255, 139, 63, 0.28);
+}
+
+header nav li:last-child a:hover {
+    transform: translateY(-2px);
+}
+
+/* ===== MAIN & HERO ===== */
+.main-body {
+    max-width: 1280px;
+    margin: 0 auto 40px;
+}
+
+.Welcome {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 40px;
+    align-items: center;
+    padding: 48px 32px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 40px;
+    box-shadow: 0 20px 60px rgba(53, 35, 28, 0.12);
+    margin-top: 28px;
+    position: relative;
+}
+
+.Welcome::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    background: linear-gradient(90deg, transparent 0%, #ff8c2f 10%, #ffb541 40%, #ff8c2f 80%, transparent 100%);
+}
+
+.welcome-content {
+    z-index: 1;
+}
+
+.Welcome .tagline {
+    display: inline-block;
+    color: #dd7f1d;
+    letter-spacing: 0.16em;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.Welcome h1 {
+    font-size: clamp(3rem, 5vw, 5.2rem);
+    line-height: 0.94;
+    color: #221914;
+    margin-bottom: 16px;
+    letter-spacing: 0.04em;
+}
+
+.Welcome .tagline-sub {
+    color: #4e6d39;
+    font-size: 1.8rem;
+    font-family: Georgia, serif;
+    font-style: italic;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.Welcome .main-text {
+    max-width: 590px;
+    color: #2a2520;
+    font-size: 1rem;
+    line-height: 1.85;
+    margin-bottom: 32px;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+    margin-left: 145px;
+}
+
+
+.primary-btn {
+    background: linear-gradient(135deg, #ff7f24 0%, #ffad4b 100%);
+    color: #fff;
+    border: none;
+    box-shadow: 0 10px 22px rgba(255, 129, 39, 0.24);
+    border-radius: 999px;
+    padding: 14px 32px;
+    font-weight: 700;
+    font-size: 0.98rem;
+    letter-spacing: 0.06em;
+    transition: all 0.3s ease;
+    margin-left: 0;
+}
+
+.primary-btn:hover {
+    transform: translateY(-2px);
+}
+
+.secondary-btn {
+    background: transparent;
+    color: #2a2320;
+    border: 2px solid #2a2320;
+}
+
+.secondary-btn:hover {
+    background: #f7f0e6;
+}
+
+.welcome-badges {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-top: 24px;
+}
+
+.badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #2a2320;
+    font-size: 0.95rem;
+}
+
+.badge::before {
+    content: "";
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #74a062 0%, #b7cf95 100%);
+    display: inline-block;
+}
+
+/* ===== HERO IMAGE LAYOUT ===== */
+.welcome-gallery {
+    position: relative;
+    min-height: 520px;
+}
+
+.salad-platter,
+.salad,
+.smothie {
+    position: absolute;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.14);
+}
+
+.salad-platter {
+    width: 520px;
+    height: 420px;
+    top: 40px;
+    right: 0;
+    z-index: 2;
+}
+
+.salad {
+    width: 210px;
+    height: 170px;
+    top: 20px;
+    right: -10px;
+    z-index: 3;
+    border: 4px solid #fff;
+}
+
+.smothie {
+    width: 210px;
+    height: 170px;
+    top: 240px;
+    right: -10px;
+    z-index: 3;
+    border: 4px solid #fff;
+}
+
+.salad-platter img,
+.salad img,
+.smothie img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.salad-platter:hover img,
+.salad:hover img,
+.smothie:hover img {
+    transform: scale(1.03);
+}
+
+/* ===== SERVICES SECTION ===== */
+.Services {
+    padding: 64px 4%;
+    background: transparent;
+    margin-top: 28px;
+}
+
+.services-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.services-label {
+    color: #ff8c2f;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.services-header h1 {
+    color: #2a2320;
+    font-size: clamp(2.1rem, 3vw, 2.8rem);
+    letter-spacing: 0.02em;
+    margin: 0;
+    margin-left: 400px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(180px, 1fr));
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.Services > div {
+    background: rgba(255, 255, 255, 0.98);
+    border: 1px solid rgba(188, 167, 147, 0.55);
+    border-radius: 24px;
+    padding: 28px 24px;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.Services > div:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+.service-icon {
+    width: 44px;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background: #f7f2eb;
+    color: #4c542b;
+    margin-bottom: 18px;
+    font-size: 1.1rem;
+}
+
+.Services h3 {
+    margin: 0 0 12px;
+    color: #2a2320;
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+
+.Services p {
+    margin: 0;
+    color: #5b514d;
+    font-size: 0.96rem;
+    line-height: 1.75;
+}
+
+.Services > div::after {
+    content: "→";
+    position: absolute;
+    right: 22px;
+    bottom: 22px;
+    color: #ff8c2f;
+    font-size: 1.4rem;
+    transition: transform 0.3s ease;
+}
+
+.Services > div:hover::after {
+    transform: translateX(4px);
+}
+
+.Ordering {
+    border: black 1px solid;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.Delivery {
+    border: black 1px solid;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.Catering {
+    border: black 1px solid;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.Reservation {
+    border: black 1px solid;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    max-width: 1280px;
+    margin: 0 auto 40px;
+    background: #2b1a10;
+    border-radius: 40px;
+    padding: 30px 36px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(180px, 1fr));
+    gap: 24px;
+    align-items: center;
+    color: #fff;
+}
+
+.social-item {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    padding: 18px 22px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.social-item img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+}
+
+.social-item h3 {
+    margin: 0;
+    line-height: 1.1;
+}
+
+
+footer::after {
+    content: "Thank you for choosing Praise-Platters.";
+    grid-column: 1 / -1;
+    justify-self: end;
+    color: #ffb26f;
+    font-style: italic;
+    font-size: 1rem;
+    opacity: 0.92;
+    margin-top: 24px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 980px) {
+    .Welcome {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .welcome-gallery {
+        min-height: 360px;
+    }
+
+    .salad-platter {
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        width: min(520px, 92vw);
+        height: auto;
+        aspect-ratio: 520 / 420;
+    }
+
+    .salad,
+    .smothie {
+        right: 50%;
+        transform: translateX(50%);
+    }
+}
+
+@media (max-width: 1100px) {
+    .primary-btn {
+        margin-left: 0;
+    }
+
+    /* keep responsive breakpoints consistent */
+
+    .Welcome {
+        grid-template-columns: 1fr;
+    }
+
+    .welcome-gallery {
+        height: 440px;
+    }
+
+    .salad-platter {
+        width: 460px;
+        height: 360px;
+        top: 40px;
+        right: 0;
+    }
+
+    .salad,
+    .smothie {
+        width: 180px;
+        height: 150px;
+        right: 0;
+    }
+
+    .salad {
+        top: 0;
+    }
+
+    .smothie {
+        top: 240px;
+    }
+}
+
+@media (max-width: 900px) {
+    header {
+        padding: 18px 24px;
+        gap: 16px;
+    }
+
+    header nav ul {
+        gap: 16px;
+        justify-content: flex-start;
+    }
+
+    .welcome-gallery {
+        height: 360px;
+    }
+
+    .salad-platter {
+        width: 360px;
+        height: 300px;
+    }
+
+    .salad,
+    .smothie {
+        width: 160px;
+        height: 130px;
+    }
+}
+
+@media (max-width: 760px) {
+    header nav ul {
+        justify-content: flex-start;
+        gap: 14px;
+        padding-right: 0;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header nav ul {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .Welcome {
+        padding: 36px 24px;
+    }
+
+    .Welcome h1 {
+        font-size: 2.6rem;
+    }
+
+    .Welcome .tagline-sub {
+        font-size: 1.5rem;
+    }
+
+    .welcome-gallery {
+        height: 320px;
+    }
+
+    .salad-platter {
+        width: 300px;
+        height: 250px;
+    }
+
+    .salad,
+    .smothie {
+        width: 140px;
+        height: 120px;
+    }
+
+    footer {
+        grid-template-columns: 1fr;
+    }
+
+    .social-item {
+        margin-left: 0;
+    }
+
+    footer::after {
+        justify-self: start;
+        text-align: left;
+    }
+}
+
+@media (max-width: 540px) {
+    header {
+        padding: 16px 18px;
+    }
+
+    header h2 {
+        font-size: 1.1rem;
+    }
+
+    header nav ul {
+        gap: 10px;
+    }
+
+    .Welcome {
+        padding: 28px 18px;
+    }
+
+    .Welcome h1 {
+        font-size: 2.1rem;
+    }
+
+    .Welcome .tagline-sub {
+        font-size: 1.25rem;
+    }
+
+    .welcome-gallery {
+        height: 280px;
+    }
+
+    .salad-platter {
+        width: 240px;
+        height: 190px;
+    }
+
+    .salad,
+    .smothie {
+        width: 110px;
+        height: 90px;
+    }
+
+    .Services {
+        padding: 56px 18px;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+    }
+
+    .Services > div {
+        padding: 22px 18px;
+    }
+
+    footer {
+        padding: 28px 18px;
+    }
+
+    footer::after {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 420px) {
+    header nav ul {
+        gap: 8px;
+    }
+
+    .Welcome {
+        padding: 24px 16px;
+    }
+
+    .welcome-gallery {
+        height: 260px;
+    }
+
+    .salad-platter {
+        width: 220px;
+        height: 170px;
+    }
+
+    .salad,
+    .smothie {
+        width: 100px;
+        height: 80px;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+    <link rel="stylesheet" href="CSS-Styles/feedback.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/PRAISEPLATERS-LOGO.png">
+        </div>
+        <h2>Praise-Platters</h2>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="reservations.html">Reservations</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+                <li><a href="menu.html">Menu</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <div class="Reviews">
+            <p>As our lovely customer we would like feedback and ratings<br>from you about our services.Kindly take a moment and share what you think.</p>
+            <form>
+                <input type="text" placeholder="REVIEW" required>
+            </form>
+        </div>
+
+        <div class="button">
+                   <p>Rate overall experience here: </p>
+            
+            <div class="star-rating" id="starRating">
+                <span class="star" data-value="1">★</span>
+                <span class="star" data-value="2">★</span>
+                <span class="star" data-value="3">★</span>
+                <span class="star" data-value="4">★</span>
+                <span class="star" data-value="5">★</span>
+            </div>
+            <p id="ratingDisplay" style="margin-top: 10px; color: #ff8c2f; font-weight: 700;"></p>
+
+            <button>SUBMIT</button>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="social-item">
+            <img src="images/whatsapp.png" alt="WhatsApp">
+            <h3>WhatsApp</h3>
+            <h3>78372650</h3>
+        </div>
+
+        <div class="social-item">
+            <img src="images/facebook.png" alt="Facebook">
+            <h3>Facebook</h3>
+            <h3>praiseplatters_res</h3>
+        </div>
+
+        <div class="social-item">
+            <img src="images/instagram.png" alt="Instagram">
+            <h3>Instagram</h3>
+            <h3>praise-platters</h3>
+        </div>
+    </footer>
+    
+    <script>
+        let selectedRating = 0;
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const stars = document.querySelectorAll('.star');
+            const ratingDisplay = document.getElementById('ratingDisplay');
+            const submitButton = document.querySelector('.button button');
+            const reviewForm = document.querySelector('.Reviews form');
+            
+            // Star rating functionality
+            stars.forEach(star => {
+                star.addEventListener('click', function() {
+                    selectedRating = this.getAttribute('data-value');
+                    updateStars(selectedRating);
+                    ratingDisplay.textContent = 'Your rating: ' + selectedRating + '/5 ⭐';
+                });
+                
+                star.addEventListener('mouseover', function() {
+                    updateStars(this.getAttribute('data-value'));
+                });
+            });
+            
+            // Reset stars on mouse leave
+            document.getElementById('starRating').addEventListener('mouseleave', function() {
+                updateStars(selectedRating);
+            });
+            
+            // Submit button functionality
+            submitButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const reviewText = reviewForm.querySelector('input[placeholder="REVIEW"]').value.trim();
+                
+                // Check if review and rating are provided
+                if (!reviewText) {
+                    alert('Please write a review.');
+                    return;
+                }
+                
+                if (selectedRating === 0) {
+                    alert('Please select a star rating.');
+                    return;
+                }
+                
+                // Show thank you message
+                showThankYouMessage();
+                
+                // Reset form and rating
+                reviewForm.reset();
+                selectedRating = 0;
+                updateStars(0);
+                ratingDisplay.textContent = '';
+            });
+        });
+        
+        function updateStars(rating) {
+            const stars = document.querySelectorAll('.star');
+            stars.forEach(star => {
+                const starValue = star.getAttribute('data-value');
+                if (starValue <= rating) {
+                    star.classList.add('active');
+                } else {
+                    star.classList.remove('active');
+                }
+            });
+        }
+        
+        function showThankYouMessage() {
+            // Create overlay
+            const overlay = document.createElement('div');
+            overlay.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.5);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 1000;
+            `;
+            
+            // Create message box
+            const messageBox = document.createElement('div');
+            messageBox.style.cssText = `
+                background: #fff;
+                padding: 40px;
+                border-radius: 30px;
+                text-align: center;
+                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+                max-width: 400px;
+                animation: slideIn 0.4s ease-out;
+            `;
+            
+            messageBox.innerHTML = `
+                <p style="font-size: 1.8rem; color: #ff8c2f; font-weight: 700; margin-bottom: 16px;">
+                    ✓ Thank you for your feedback!
+                </p>
+                <p style="font-size: 1rem; color: #4b433b; margin-bottom: 24px;">
+                    We appreciate your valuable input and will use it to improve our services.
+                </p>
+                <button style="
+                    padding: 12px 32px;
+                    background: linear-gradient(135deg, #ff8c2f 0%, #ffb241 100%);
+                    color: #fff;
+                    border: none;
+                    border-radius: 20px;
+                    font-weight: 700;
+                    cursor: pointer;
+                    font-size: 1rem;
+                ">Close</button>
+            `;
+            
+            overlay.appendChild(messageBox);
+            document.body.appendChild(overlay);
+            
+            // Add animation styles
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes slideIn {
+                    from {
+                        transform: translateY(-30px);
+                        opacity: 0;
+                    }
+                    to {
+                        transform: translateY(0);
+                        opacity: 1;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            // Close button functionality
+            messageBox.querySelector('button').addEventListener('click', function() {
+                overlay.remove();
+            });
+            
+            // Close on overlay click
+            overlay.addEventListener('click', function(e) {
+                if (e.target === overlay) {
+                    overlay.remove();
+                }
+            });
+        }
+    </script>
+    
+</body>
+</html>
