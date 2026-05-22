@@ -443,6 +443,16 @@ footer {
     line-height: 1.1;
 }
 
+.social-item h3:first-of-type {
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.social-item h3:last-child {
+    font-size: 0.95rem;
+    font-weight: 500;
+    opacity: 0.9;
+}
 
 footer::after {
     content: "Thank you for choosing Praise-Platters.";

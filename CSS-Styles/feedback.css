@@ -247,8 +247,8 @@ footer {
 
 .social-item {
     display: flex;
-    align-items: center;
     gap: 18px;
+    align-items: center;
     padding: 18px 22px;
     background: rgba(255, 255, 255, 0.08);
     border-radius: 24px;
@@ -278,7 +278,7 @@ footer {
 }
 
 footer::after {
-    content: "Thank you for choosing";
+    content: "Thank you for choosing Praise-Platters.";
     grid-column: 1 / -1;
     justify-self: end;
     color: #ffb26f;
