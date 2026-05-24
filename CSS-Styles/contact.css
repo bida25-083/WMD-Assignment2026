@@ -85,7 +85,7 @@ header nav li a {
     font-weight: 600;
     text-transform: uppercase;
     padding: 8px 0;
-    transition: color 0.25s ease;
+    transition: color 0.99s ease;
 }
 
 header nav li a:hover {
